@@ -8,7 +8,6 @@ import android.os.Build
 import android.os.IBinder
 import android.view.*
 import android.widget.*
-import androidx.cardview.widget.CardView
 import com.progressmate.app.data.AppDatabase
 import com.progressmate.app.data.TaskEntity
 import kotlinx.coroutines.*
@@ -53,10 +52,14 @@ class FloatingWidgetService : Service() {
             y = 200
         }
 
-        val card = androidx.cardview.widget.CardView(this).apply {
-            radius = 32f
-            setCardBackgroundColor(0xEE1E293B.toInt())
-            cardElevation = 18f
+       val card = LinearLayout(this).apply {
+            orientation = LinearLayout.VERTICAL
+            background = android.graphics.drawable.GradientDrawable().apply {
+                setColor(android.graphics.Color.rgb(30, 41, 59))
+                cornerRadius = 32f
+            }
+            elevation = 18f
+            clipToOutline = true
         }
 
         val rootLayout = LinearLayout(this).apply {
