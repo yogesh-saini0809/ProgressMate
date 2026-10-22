@@ -53,7 +53,7 @@ class FloatingWidgetService : Service() {
             y = 200
         }
 
-        val card = CardView(this).apply {
+        val card = androidx.cardview.widget.CardView(this).apply {
             radius = 32f
             setCardBackgroundColor(0xEE1E293B.toInt())
             cardElevation = 18f
