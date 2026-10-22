@@ -29,6 +29,12 @@ jobs:
       - name: Grant Gradle Wrapper Permission
         run: chmod +x gradlew
 
+      - name: Fix Gradle Wrapper Line Endings
+        run: sed -i 's/\r$//' gradlew
+
+      - name: Grant Gradle Wrapper Permission
+        run: chmod +x gradlew
+
       - name: Build APK
         run: ./gradlew --no-daemon assembleDebug --stacktrace --info
 
